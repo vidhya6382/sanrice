@@ -13,7 +13,7 @@ services:
     name: sanrice-api
     rootDir: backend
     plan: free
-    buildCommand: ./build.sh
+    buildCommand: bash build.sh
     startCommand: gunicorn config.wsgi:application
     healthCheckPath: /api/health/
     envVars:
