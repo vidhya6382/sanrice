@@ -24,7 +24,7 @@ export default function Home() {
       {/* Hero */}
       <section className="home-hero">
         <div className="home-hero__text">
-          <h1>A Legacy of Purity. A Promise of Quality.</h1>
+          <h1>SAN Rice</h1>
           <p className="eyebrow">Quality in every grain, trust in every meal</p>
         </div>
         <img
@@ -42,14 +42,13 @@ export default function Home() {
         <div className="container promise">
           <div className="promise__intro">
             <h2 className="promise__heading">
-              From our farms,
+              Quality in Every  Grain,
               <br />
-              to your family,
-              <br />1 promise.
+              Trust in
+              <br />Every Meal.
             </h2>
             <p>
-              From paddy trading to our own rice factory, SAN Rice is built on determination, experience and the
-              trust of our customers.
+             From paddy trading to our own rice mill, our journey is built on hard work, good quality and customer trust.
             </p>
             <Link to="/about" className="btn btn--outline">Our Story</Link>
           </div>
