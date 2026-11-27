@@ -60,14 +60,11 @@ export default function About() {
           <article className="info-card info-card--red about-grid__beginning">
             <h2>Our Story</h2>
             <p>
-              SAN Rice is built on a journey of determination, business experience and customer trust. What
-              began with an interest in the rice trade has grown into a business focused on{" "}
-              <strong>paddy trading, rice processing and rice manufacturing</strong>.
-            </p>
+             SAN Rice started with a simple interest in the rice trade. Over time, that interest grew into a business covering paddy trading and rice milling.
+</p>
             <p>
-              The founder's journey was shaped by opportunities to learn, build relationships and understand
-              the rice industry. Throughout, the trust placed in the business by customers and partners became
-              an important foundation for growth.
+              In 2017–2018, our founder visited the UAE (Dubai) and Saudi Arabia on business. These trips helped us build useful contacts in the rice trade. After returning to India, we started paddy trading in 2020–2021, guided by an experienced businessman from Tirunelveli. The trust of our customers and partners became the base we built on.
+            
             </p>
           </article>
 
@@ -76,10 +73,8 @@ export default function About() {
           <article className="info-card info-card--gold">
             <h2>From Setback to Growth</h2>
             <p>
-              The journey was not without challenges. At one stage, the founder faced a major financial
-              setback, with losses of nearly <strong>₹65 lakh</strong>. Rather than giving up, the founder chose
-              to rebuild and move forward while continuing to value customer relationships and trust.
-            </p>
+              Our journey has not always been easy. At one point, we faced a major financial loss. We chose to rebuild rather than give up, and we never stopped valuing the trust of our customers.</p>
+            <p>That decision led to our next big step. In [year], we set up our own rice mill and moved from paddy trading into rice milling.</p>
           </article>
 
           <article className="info-card info-card--red">
@@ -110,31 +105,15 @@ export default function About() {
         </div>
       </section>
 
-      {/* Quote banner */}
-      <section className="rooted" style={{ backgroundImage: `url(${farmersField})` }}>
-        <div className="container rooted__inner">
-          <h2>
-            “A symbol of the trust
-            <br />
-            our customers place in us.”
-          </h2>
-          <p>
-            For SAN Rice, the brand represents more than a product. It represents the trust and confidence
-            customers have placed in the business. Our commitment is to protect that trust, keep growing and
-            reach new milestones in the years ahead.
-          </p>
-        </div>
-      </section>
-
+     
       {/* Our Reach + Looking Ahead */}
       <section className="section">
         <div className="container reach">
           <div className="reach__col">
             <h2>Our Reach</h2>
             <p>
-              SAN Rice has expanded beyond Tamil Nadu, with products distributed through retail outlets such as{" "}
-              <strong>Lulu Mall</strong> and <strong>Pothys</strong>, along with a growing distribution network.
-            </p>
+             Today, SAN Rice is available beyond Tamil Nadu in Karnataka, Andhra Pradesh and Kerala. You can find our rice at [LuLu Hypermarket] and [Pothys], and through our growing network of distributors. We also have export links with buyers in the UAE (Dubai) and Saudi Arabia.
+</p>
             <h3 className="reach__label">Across India</h3>
             <ul className="chips">
               {states.map((s) => (
@@ -152,32 +131,39 @@ export default function About() {
           <article className="info-card info-card--gold reach__ahead">
             <h2>Looking Ahead</h2>
             <p>
-              Our next goal is to strengthen our presence across <strong>Tenkasi, Tirunelveli</strong> and nearby
-              regions, while continuing to expand our distribution network and make our products available to
-              more customers.
+Next, we want to grow stronger in our home region of Tenkasi, Tirunelveli and nearby areas. We will also keep expanding our distribution network so more families can enjoy our rice.
+              To us, SAN Rice is more than a product. It stands for the trust our customers place in us, and we work every day to keep it.
             </p>
             <Link to="/products" className="btn btn--red btn--sm">See Our Rice</Link>
           </article>
         </div>
       </section>
-
+       {/* Quote banner */}
+ <section className="rooted" style={{ backgroundImage: `url(${farmersField})` }}>
+        <div className="container rooted__inner">
+          <h2>
+            “A symbol of the trust
+            <br />
+            our customers place in us.”
+          </h2>
+          <p>
+            For SAN Rice, the brand represents more than a product. It represents the trust and confidence
+            customers have placed in the business. Our commitment is to protect that trust, keep growing and
+            reach new milestones in the years ahead.
+          </p>
+        </div>
+          </section>
       {/* Mission & Vision */}
       <section className="section section--tight-top">
         <div className="container mission">
           <div className="mission__text">
             <h2>Our Mission</h2>
             <p>
-              To deliver quality rice with a commitment to purity, freshness and excellence. Our mission is to
-              provide customers with rice that meets high-quality standards, offers value and brings nourishment
-              and happiness to every household. We strive to build lasting relationships through trust,
-              consistency and customer satisfaction.
+              To supply pure, fresh and good-quality rice at a fair price. We want every household to enjoy healthy, satisfying meals, and we aim to earn lasting trust through consistent quality and good service.
             </p>
             <h2>Our Vision</h2>
             <p>
-              To become a trusted and recognized name in the rice industry by setting high standards in quality,
-              reliability and customer service. We aspire to expand our reach, strengthen our business network
-              and make quality rice accessible to more households while preserving the goodness of traditional
-              rice.
+              To become a trusted name in the rice industry, known for quality, reliability and customer care. We aim to grow our reach and network so more households can access good rice, while keeping the goodness of traditional rice alive.
             </p>
           </div>
           <img className="mission__img" src={bagsFarm} alt="SAN Pannaiyar and Ali Baba rice bags" loading="lazy" />
