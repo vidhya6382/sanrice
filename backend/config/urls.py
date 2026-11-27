@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.contrib import admin
+from django.http import JsonResponse
 from django.urls import include, path, re_path
 from django.views.static import serve
 from rest_framework.routers import DefaultRouter
@@ -8,11 +9,17 @@ from core.views import health, site_settings
 from enquiries.views import EnquiryCreateView
 from products.views import BrandViewSet, ProductViewSet
 
+
+def home(request):
+    return JsonResponse({"status": "ok", "message": "SAN Rice API is running"})
+
+
 router = DefaultRouter()
 router.register("brands", BrandViewSet, basename="brand")
 router.register("products", ProductViewSet, basename="product")
 
 urlpatterns = [
+    path("", home, name="home"),
     path("admin/", admin.site.urls),
     path("api/", include(router.urls)),
     path("api/enquiries/", EnquiryCreateView.as_view(), name="enquiry-create"),
