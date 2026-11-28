@@ -3,11 +3,11 @@ import { createEnquiry } from "../api/client";
 import { useSite } from "../context/SiteContext";
 import { CheckIcon, CloseIcon } from "./Icons";
 
-const FIELDS = ["name", "phone", "email", "quantity", "message"];
-const empty = { name: "", phone: "", email: "", quantity: "", message: "" };
+const FIELDS = ["name", "phone", "email", "message"];
+const empty = { name: "", phone: "", email: "", message: "" };
 const MESSAGE_MAX = 1000;
 
-const NAME_RE = /^[A-Za-z஀-௿][A-Za-z஀-௿ .'-]*$/; // English or Tamil letters
+const NAME_RE = /^[A-Za-z\u0B80-\u0BFF][A-Za-z\u0B80-\u0BFF .'-]*$/;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 function mobileDigits(value) {
@@ -35,12 +35,6 @@ function validateField(name, value) {
       if (!v) return "Please enter your email address.";
       if (!EMAIL_RE.test(v)) return "Enter a valid email address.";
       return "";
-    case "quantity":
-      if (!v) return "Please enter the number of bags.";
-      if (!/^\d+$/.test(v)) return "Enter the number of bags as a whole number.";
-      if (Number(v) < 1) return "Quantity must be at least 1 bag.";
-      if (Number(v) > 100000) return "For orders above 100,000 bags please call us.";
-      return "";
     case "message":
       if (!v) return "Please enter your delivery address or any details.";
       if (v.length < 5) return "Please write a little more (at least 5 characters).";
@@ -55,7 +49,6 @@ const LABELS = {
   name: "Name",
   phone: "Mobile",
   email: "Email",
-  quantity: "Quantity (bags)",
   message: "Delivery address / message",
 };
 
@@ -66,7 +59,7 @@ export default function EnquiryModal({ product, onClose }) {
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [formError, setFormError] = useState("");
-  const [status, setStatus] = useState("idle"); // idle | sending | sent | offline
+  const [status, setStatus] = useState("idle");
   const refs = useRef({});
 
   useEffect(() => {
@@ -107,7 +100,6 @@ export default function EnquiryModal({ product, onClose }) {
     } else if (Object.keys(e).length) {
       setFormError("Please correct the highlighted fields.");
     }
-    // Jump to the first box that needs attention.
     const first = FIELDS.find((k) => e[k]);
     if (first) refs.current[first]?.focus();
     return Object.keys(e).length === 0;
@@ -124,7 +116,6 @@ export default function EnquiryModal({ product, onClose }) {
         name: form.name.trim(),
         phone: form.phone.trim(),
         email: form.email.trim(),
-        quantity: Number(form.quantity),
         message: form.message.trim(),
       });
       setStatus("sent");
@@ -209,15 +200,10 @@ export default function EnquiryModal({ product, onClose }) {
                 <input {...fieldProps("phone")} maxLength={16} inputMode="tel" autoComplete="tel" placeholder="98765 43210" />
                 <ErrorText name="phone" />
               </label>
-              <label>
+              <label className="form__full">
                 Email *
                 <input {...fieldProps("email")} type="email" maxLength={254} autoComplete="email" placeholder="you@example.com" />
                 <ErrorText name="email" />
-              </label>
-              <label>
-                Quantity (bags) *
-                <input {...fieldProps("quantity")} type="number" min="1" max="100000" step="1" inputMode="numeric" placeholder="e.g. 10" />
-                <ErrorText name="quantity" />
               </label>
               <label className="form__full">
                 Delivery address / message *
